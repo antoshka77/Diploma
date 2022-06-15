@@ -4,10 +4,8 @@ num_levels = 300;
 %channel_count
 channel_count = 1;
 
-%Iaeneiaeuiia eiee?anoai ninoiyiee a y?ona
 max_states_in_level = channel_count + 1;
 
-%Ia?aue y?on n iaeneiaeuiui eiee?anoaii ninoiyiee
 level_w_max_states = channel_count + 1;
 
 %three first moments for entry and exit distribution
@@ -164,7 +162,7 @@ end
 max_iterations=100;
 
 
-%vector's of probablity initialization
+%vectors of probablity initialization
 t = cell(max_iterations, 1);
 v = cell(1, num_levels + 1);
 for q = 1 : level_w_max_states
@@ -252,7 +250,6 @@ for i = 2:max_iterations
         fprintf(fid, 't{%d) = ', j);
         fprintf(fid, '%6.4f ', t{i}{j});
 
-        % I?iaa?ea oneiaey ieii?aiey eoa?aoee
         if (fin == 1) && (( x{i}{num_levels} - x{i-1}{num_levels} ) < eps ) && ( ( x{i}{num_levels} - x{i-1}{num_levels} ) > 0 )
             fin = 1;
         else
@@ -384,9 +381,6 @@ fprintf(fid_4, 't_average_queue = %6.4f\n', n_average_q / intens_average); %???
 fprintf(fid_4, 'n_average_ch = %6.4f\n', n_average - n_average_q); %???
 
 
-
-
-%Cae?uoea oaeeia
 fclose(fid);
 fclose(fid_2);
 fclose(fid_3);
@@ -396,6 +390,3 @@ fclose(fid_4);
 [n_average, n_average_q, n_average_c] = get_averages(1/q_1_entr, q_2_entr*2, 1/q_1_ex, 2*q_2_ex, max_states_in_level-1)
 t_average = n_average / intens_average
 t_average_q = n_average_q / intens_average
-
-
-
